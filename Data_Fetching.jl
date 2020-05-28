@@ -25,8 +25,8 @@ function data_fetching(start, days, state, smoothing)
         for i = 1:4
             smoothed_data[:, i] = imfilter(State_data_matrix[:, i], kernel)
         end
-        CSV.write(string("/Users/",ENV["USER"],"/Box/Corona/Julia/State_smoothed_data.csv"), DataFrame(smoothed_data), writeheader=false)
+        CSV.write(string("/Users/",ENV["USER"],"/Box/Corona/Julia/Data/State_smoothed_data.csv"), DataFrame(smoothed_data), writeheader=false)
     else
-        CSV.write(string("/Users/",ENV["USER"],"/Box/Corona/Julia/State_smoothed_data.csv"), DataFrame(State_data_matrix[:, 1:4]), writeheader=false)
+        CSV.write(string("/Users/",ENV["USER"],"/Box/Corona/Julia/Data/State_data.csv"), DataFrame(State_data_matrix[:, 1:4]), writeheader=false)
     end
 end
